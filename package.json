@@ -4,8 +4,12 @@
     "description": "blamer is a tool for getting information about author of code from version control system",
     "main": "src/index.js",
     "scripts": {
-        "test": "mocha",
-        "developing": "mocha --watch"
+        "test": "mocha $(find test -name '*.js')",
+        "developing": "mocha --watch $(find test -name '*.js')"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kucherenko/blamer.git"
     },
     "keywords": [
         "blame",
@@ -13,11 +17,15 @@
         "git",
         "svn"
     ],
+    "dependencies": {
+        "q": "~1.0.x"
+    },
     "devDependencies": {
         "mocha": "~1.20.x",
         "chai": "~1.9.x",
         "sinon": "~1.10.x",
-        "sinon-chai": "~2.5.x"
+        "sinon-chai": "~2.5.x",
+        "proxyquire": "~1.0.x"
     },
     "readmeFilename": "README.md",
     "author": "Andrey Kucherenko",
