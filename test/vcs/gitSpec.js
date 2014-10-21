@@ -1,7 +1,18 @@
+var Promise = require('bluebird');
 describe('Git VCS', function () {
     var sut, exec, file, cwd,
         callback, dirname, basename,
         fileRaw, blameString;
+
+    function initializeSut() {
+        sut = proxyquire('../src/vcs/git.js', {
+            "child_process": {exec: exec},
+            "path": {
+                dirname: dirname,
+                basename: basename
+            }
+        });
+    }
 
     beforeEach(function () {
         blameString = 'rev (author name 2014-10-18 17:51:36 +0300 1) A\n';
@@ -17,36 +28,42 @@ describe('Git VCS', function () {
 
         dirname = env.stub().withArgs(fileRaw).returns(cwd);
         basename = env.stub().withArgs(fileRaw).returns(file);
-
-        sut = proxyquire('../src/vcs/git.js', {
-            "child_process": {exec: exec},
-            "path": {
-                dirname: dirname,
-                basename: basename
-            }
-        });
+        initializeSut();
     });
 
     it('should exec git blame', function () {
-        sut(fileRaw, callback);
+        sut(fileRaw);
         exec.should.have.been.calledWith(
-            'git blame ' + file,
+                'git blame ' + file,
             {cwd: cwd},
             sinon.match.any
         );
     });
 
     it('should parse result of blame', function () {
-        sut(fileRaw, callback);
-        callback.should.have.been.calledWith({
-            "1": {
-                "rev": "rev",
-                "author": "author name",
-                "date": "2014-10-18 17:51:36 +0300",
-                "line": "1",
-                "content": "A"
-            }
+        sut(fileRaw).then(callback).finally(function(){
+            callback.should.have.been.calledWith({
+                "1": {
+                    "rev": "rev",
+                    "author": "author name",
+                    "date": "2014-10-18 17:51:36 +0300",
+                    "line": "1",
+                    "content": "A"
+                }
+            });
         });
     });
+
+    it('should reject promise on error', function () {
+        exec = env.stub().callsArgWith(2, 111, blameString, 'ololo');
+        initializeSut();
+        sut(fileRaw).error(callback).finally(function(){
+            callback.should.have.been.calledWith({
+                error: 111,
+                message: 'ololo'
+            });
+        });
+    });
+
 
 });
