@@ -18,7 +18,8 @@
         "svn"
     ],
     "dependencies": {
-        "bluebird": "~2.3.x"
+        "bluebird": "~2.3.x",
+        "xml2js": "~0.4.x"
     },
     "devDependencies": {
         "mocha": "~1.20.x",

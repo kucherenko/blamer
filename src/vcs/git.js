@@ -12,7 +12,7 @@ function convertStringToObject(line) {
     commit.author = matches[2];
     commit.date = matches[3];
     commit.line = matches[4];
-    commit.content = matches[5];
+
     return commit;
 }
 

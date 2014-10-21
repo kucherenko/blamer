@@ -1,11 +1,11 @@
 var Promise = require('bluebird');
-describe('Git', function () {
+describe('SVN', function () {
     var sut, exec, file, cwd,
         callback, dirname, basename,
         fileRaw, blameString;
 
     function initializeSut() {
-        sut = proxyquire('../src/vcs/git', {
+        sut = proxyquire('../src/vcs/svn', {
             "child_process": {exec: exec},
             "path": {
                 dirname: dirname,
@@ -15,7 +15,7 @@ describe('Git', function () {
     }
 
     beforeEach(function () {
-        blameString = 'rev (author name 2014-10-18 17:51:36 +0300 1) A\n';
+        blameString = '<?xml version="1.0" encoding="UTF-8"?><blame><target path="file"><entry line-number="1"><commit revision="rev"><author>author</author><date>2014-10-15T12:33:31.675393Z</date></commit></entry></target></blame>';
 
         callback = env.stub();
 
@@ -31,10 +31,10 @@ describe('Git', function () {
         initializeSut();
     });
 
-    it('should exec git blame', function () {
+    it('should exec svn blame', function () {
         sut(fileRaw);
         exec.should.have.been.calledWith(
-                'git blame ' + file,
+                'svn blame ' + file + ' --xml',
             {cwd: cwd},
             sinon.match.any
         );
@@ -45,8 +45,8 @@ describe('Git', function () {
             callback.should.have.been.calledWith({
                 "1": {
                     "rev": "rev",
-                    "author": "author name",
-                    "date": "2014-10-18 17:51:36 +0300",
+                    "author": "author",
+                    "date": "2014-10-15T12:33:31.675393Z",
                     "line": "1"
                 }
             });
@@ -63,6 +63,4 @@ describe('Git', function () {
             });
         });
     });
-
-
 });
