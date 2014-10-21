@@ -18,7 +18,7 @@
         "svn"
     ],
     "dependencies": {
-        "q": "~1.0.x"
+        "bluebird": "~2.3.x"
     },
     "devDependencies": {
         "mocha": "~1.20.x",
