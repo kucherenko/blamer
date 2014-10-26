@@ -6,4 +6,4 @@ node_js:
 script:
   - ./node_modules/jscoverage/bin/jscoverage src .tmp
   - npm run ci
-  - cat ./coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js src
+  - cat ./coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js
