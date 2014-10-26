@@ -1,3 +1,5 @@
-require('./vcs/git')(__dirname + '/../README.md', function(result){
-    console.log(result);
+var svn = require('./vcs/svn');
+
+svn('/home/apk/workspace/CTCMobile/README.md').then(function (result) {
+    console.log("Session: %j", result);
 });

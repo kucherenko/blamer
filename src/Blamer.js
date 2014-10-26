@@ -1,5 +1,6 @@
 var blamers = {
-    'git': require("./vcs/git")
+    'git': require("./vcs/git"),
+    'svn': require("./vcs/svn")
 };
 var Blamer = function Blamer(type) {
     this.type = type || 'git';
