@@ -1,5 +1,3 @@
-var svn = require('./vcs/svn');
+var Blamer = require('./Blamer');
 
-svn('/home/apk/workspace/CTCMobile/README.md').then(function (result) {
-    console.log("Session: %j", result);
-});
+module.exports = Blamer;
