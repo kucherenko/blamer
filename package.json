@@ -5,7 +5,8 @@
     "main": "src/index.js",
     "scripts": {
         "test": "mocha $(find test -name '*.js')",
-        "developing": "mocha --watch $(find test -name '*.js')"
+        "ci": "COVERAGE=true ./node_modules/mocha/bin/mocha -R mocha-phantom-coverage-reporter $(find test -name '*.js')",
+        "developing": "./node_modules/mocha/bin/mocha --watch $(find test -name '*.js')"
     },
     "repository": {
         "type": "git",
@@ -26,7 +27,10 @@
         "chai": "~1.9.x",
         "sinon": "~1.10.x",
         "sinon-chai": "~2.5.x",
-        "proxyquire": "~1.0.x"
+        "proxyquire": "~1.0.x",
+        "coveralls": "~2.11.x",
+        "jscoverage": "~0.5.x",
+        "mocha-phantom-coverage-reporter": "~0.1.x"
     },
     "readmeFilename": "README.md",
     "author": "Andrey Kucherenko",

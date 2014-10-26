@@ -5,7 +5,7 @@ describe('SVN', function () {
         fileRaw, blameString;
 
     function initializeSut() {
-        sut = proxyquire('../src/vcs/svn', {
+        sut = proxyquire(sourcePath + 'vcs/svn', {
             "child_process": {exec: exec},
             "path": {
                 dirname: dirname,

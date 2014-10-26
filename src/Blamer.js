@@ -1,4 +1,4 @@
-var blamers = {
+var blamerVCS = {
     'git': require("./vcs/git"),
     'svn': require("./vcs/svn")
 };
@@ -7,10 +7,10 @@ var Blamer = function Blamer(type) {
 };
 
 Blamer.prototype.blameByFile = function blameByFile(file) {
-    if (!blamers.hasOwnProperty(this.type)) {
+    if (!blamerVCS.hasOwnProperty(this.type)) {
         throw new Error('VCS "' + this.type + '" don\'t supported');
     }
-    return blamers[this.type](file);
+    return blamerVCS[this.type](file);
 };
 
 Blamer.prototype.getType = function () {

@@ -4,7 +4,7 @@ describe("Blamer", function(){
     beforeEach(function () {
         file = 'zzz';
         git = env.stub().withArgs(file).returns('resultPromise');
-        Blamer = proxyquire('../src/Blamer',{
+        Blamer = proxyquire(sourcePath + 'Blamer',{
             "./vcs/git": git
         });
         sut = new Blamer();

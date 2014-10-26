@@ -5,7 +5,7 @@ describe('Git', function () {
         fileRaw, blameString;
 
     function initializeSut() {
-        sut = proxyquire('../src/vcs/git', {
+        sut = proxyquire(sourcePath + 'vcs/git', {
             "child_process": {exec: exec},
             "path": {
                 dirname: dirname,

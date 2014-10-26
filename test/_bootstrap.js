@@ -1,3 +1,10 @@
+if (process.env['COVERAGE']) {
+    console.log('COVERAGE mode is on');
+    global.sourcePath = __dirname + '/../.tmp/';
+} else {
+    global.sourcePath = __dirname + '/../src/'
+}
+
 var chai = require('chai');
 var sinon = require('sinon');
 var proxyquire =  require('proxyquire')
