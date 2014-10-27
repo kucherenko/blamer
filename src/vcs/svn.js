@@ -13,7 +13,7 @@ module.exports = function (file) {
             if (err) {
                 reject({
                     error: err
-                })
+                });
             } else {
                 var json = {};
                 if (result.blame.target[0].entry) {
@@ -23,7 +23,7 @@ module.exports = function (file) {
                             author: line.commit[0].author[0],
                             date: line.commit[0].date[0],
                             line: line.$['line-number']
-                        }
+                        };
                     });
                 }
                 resolve(json);
@@ -33,7 +33,6 @@ module.exports = function (file) {
 
     return new Promise(function (resolve, reject) {
         exec('svn blame ' + realFile + ' --xml', {cwd: cwd}, function (error, stdout, stderr) {
-            var result = {}, lines;
             if (error) {
                 reject({
                     error: error,
