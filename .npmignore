@@ -2,6 +2,8 @@
 .travis.yml
 .coveralls.yml
 .git
+.gitignore
 npm-debug.log
 .idea
 coverage
+atlassian-ide-plugin.xml
