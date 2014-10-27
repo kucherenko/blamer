@@ -1,0 +1,7 @@
+.tmp
+.travis.yml
+.coveralls.yml
+.git
+npm-debug.log
+.idea
+coverage
