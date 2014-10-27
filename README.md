@@ -1,7 +1,7 @@
 Blamer
 ======
 
-Blamer is a tool for get information about author of code.
+Blamer is a tool for get information about author of code from version control system. Supports git and subversion.
 
 Status
 ------
