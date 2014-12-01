@@ -21,7 +21,7 @@ module.exports = function (file) {
     var cwd = path.dirname(file);
     return new Promise(function (resolve, reject) {
         exec('git blame ' + realFile, {cwd: cwd}, function (error, stdout, stderr) {
-            var result = {}, lines;
+            var result = {}, lines, res = {};
             if (error) {
                 reject({
                     error: error,
@@ -35,7 +35,8 @@ module.exports = function (file) {
                         result[line.line] = line;
                     }
                 });
-                resolve(result);
+                res[file] = result;
+                resolve(res);
             }
         });
     });

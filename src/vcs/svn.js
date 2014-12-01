@@ -15,7 +15,7 @@ module.exports = function (file) {
                     error: err
                 });
             } else {
-                var json = {};
+                var json = {}, res = {};
                 if (result.blame.target[0].entry) {
                     result.blame.target[0].entry.forEach(function (line) {
                         json[line.$['line-number']] = {
@@ -26,7 +26,8 @@ module.exports = function (file) {
                         };
                     });
                 }
-                resolve(json);
+                res[file] = json;
+                resolve(res);
             }
         });
     }

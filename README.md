@@ -31,14 +31,15 @@ blamer.blameByFile('/path/to/file/in/repo').then(
     function (result) {
         console.log("Blame json: %j", result);
 //        will print
-//        Blame json: {
+//        Blame json: {"/path/to/file/in/repo": {
 //            "1": {
 //                "rev": "rev",
 //                "author": "author",
 //                "date": "2014-10-15T12:33:31.675393Z",
 //                "line": "1"
 //            }
-//        }
+//       }
+//		}
     },
     function (error) {
         console.log("Error: %j", error);

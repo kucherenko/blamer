@@ -40,16 +40,19 @@ describe('Git', function () {
         );
     });
 
-    it('should parse result of blame', function () {
+    it('should parse result of blame', function (done) {
         sut(fileRaw).then(callback).finally(function(){
-            callback.should.have.been.calledWith({
+            var res = {};
+            res[fileRaw] = {
                 "1": {
                     "rev": "rev",
                     "author": "author name",
                     "date": "2014-10-18 17:51:36 +0300",
                     "line": "1"
                 }
-            });
+            };
+            callback.should.have.been.calledWith(res);
+            done();
         });
     });
 

@@ -40,16 +40,19 @@ describe('SVN', function () {
         );
     });
 
-    it('should parse result of blame', function () {
-        sut(fileRaw).then(callback).finally(function(){
-            callback.should.have.been.calledWith({
+    it('should parse result of blame', function (done) {
+       sut(fileRaw).then(callback).finally(function(){
+            var res = {};
+            res[fileRaw] = {
                 "1": {
                     "rev": "rev",
                     "author": "author",
                     "date": "2014-10-15T12:33:31.675393Z",
                     "line": "1"
                 }
-            });
+            };
+            callback.should.have.been.calledWith(res);
+            done();
         });
     });
 
