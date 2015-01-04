@@ -4,14 +4,14 @@ var Promise = require('bluebird');
 
 function convertStringToObject(line) {
     var commit = {};
-    var matches = line.match(/(.+) \((.+) (\d{4}-\d{2}-\d{2} .+) (\d+)\) (.*)/);
+    var matches = line.match(/(.+)\s+\((.+)\s+(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} (\+|\-)\d{4})\s+(\d+)\)(.*)/);
     if (!matches) {
         console.log('Wrong format');
     }
     commit.rev = matches[1];
     commit.author = matches[2];
     commit.date = matches[3];
-    commit.line = matches[4];
+    commit.line = matches[5];
 
     return commit;
 }
