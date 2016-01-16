@@ -1,38 +1,38 @@
 {
-    "name": "blamer",
-    "version": "0.1.9",
-    "description": "blamer is a tool for getting information about author of code from version control system",
-    "main": "src/index.js",
-    "scripts": {
-        "test": "mocha $(find test -name '*.js')",
-        "ci": "COVERAGE=true ./node_modules/mocha/bin/mocha -R mocha-phantom-coverage-reporter $(find test -name '*.js')",
-        "developing": "./node_modules/mocha/bin/mocha --watch $(find test -name '*.js')"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/kucherenko/blamer.git"
-    },
-    "keywords": [
-        "blame",
-        "vcs",
-        "git",
-        "svn"
-    ],
-    "dependencies": {
-        "bluebird": "~2.3.x",
-        "xml2js": "~0.4.x"
-    },
-    "devDependencies": {
-        "mocha": "~2.0.x",
-        "chai": "~1.9.x",
-        "sinon": "~1.10.x",
-        "sinon-chai": "~2.6.x",
-        "proxyquire": "~1.0.x",
-        "coveralls": "~2.11.x",
-        "jscoverage": "~0.5.x",
-        "mocha-phantom-coverage-reporter": "~0.1.x"
-    },
-    "readmeFilename": "README.md",
-    "author": "Andrey Kucherenko",
-    "license": "MIT"
+  "name": "blamer",
+  "version": "0.1.10",
+  "description": "blamer is a tool for getting information about author of code from version control system",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha $(find test -name '*.js')",
+    "ci": "COVERAGE=true ./node_modules/mocha/bin/mocha -R mocha-phantom-coverage-reporter $(find test -name '*.js')",
+    "developing": "./node_modules/mocha/bin/mocha --watch $(find test -name '*.js')"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kucherenko/blamer.git"
+  },
+  "keywords": [
+    "blame",
+    "vcs",
+    "git",
+    "svn"
+  ],
+  "dependencies": {
+    "bluebird": "~2.3.x",
+    "xml2js": "~0.4.x"
+  },
+  "devDependencies": {
+    "mocha": "~2.0.x",
+    "chai": "~1.9.x",
+    "sinon": "~1.10.x",
+    "sinon-chai": "~2.6.x",
+    "proxyquire": "~1.0.x",
+    "coveralls": "~2.11.x",
+    "jscoverage": "~0.5.x",
+    "mocha-phantom-coverage-reporter": "~0.1.x"
+  },
+  "readmeFilename": "README.md",
+  "author": "Andrey Kucherenko",
+  "license": "MIT"
 }
