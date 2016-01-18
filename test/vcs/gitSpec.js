@@ -38,7 +38,7 @@ describe('Git', function() {
     exec.should.have.been.calledWith(
       'git blame ' + file, {
         cwd: cwd,
-        maxBuffer: 1024 * 500
+        maxBuffer: 1024 * 1024
       },
       sinon.match.any
     );

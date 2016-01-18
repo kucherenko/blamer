@@ -39,7 +39,7 @@ describe('SVN', function() {
     exec.should.have.been.calledWith(
       'svn blame ' + file + ' --xml', {
         cwd: cwd,
-        maxBuffer: 1024 * 500
+        maxBuffer: 1024 * 1024
       },
       sinon.match.any
     );

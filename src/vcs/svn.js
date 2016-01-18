@@ -36,7 +36,7 @@ module.exports = function(file) {
   return new Promise(function(resolve, reject) {
     exec('svn blame ' + realFile + ' --xml', {
       cwd: cwd,
-      maxBuffer: 1024 * 500
+      maxBuffer: 1024 * 1024
     }, function(error, stdout, stderr) {
       if (error) {
         reject({
