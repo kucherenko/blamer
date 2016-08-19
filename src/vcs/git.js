@@ -20,7 +20,7 @@ module.exports = function(file) {
   var realFile = path.basename(file);
   var cwd = path.dirname(file);
   return new Promise(function(resolve, reject) {
-    exec('git blame ' + realFile, {
+    exec('git blame -w ' + realFile, {
       cwd: cwd,
       maxBuffer: 1024 * 1024
     }, function(error, stdout, stderr) {

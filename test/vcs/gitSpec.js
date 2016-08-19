@@ -36,7 +36,7 @@ describe('Git', function() {
   it('should exec git blame', function() {
     sut(fileRaw);
     exec.should.have.been.calledWith(
-      'git blame ' + file, {
+      'git blame -w ' + file, {
         cwd: cwd,
         maxBuffer: 1024 * 1024
       },
