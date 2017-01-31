@@ -16,11 +16,12 @@ function convertStringToObject(line) {
   return commit;
 }
 
-module.exports = function(file) {
+module.exports = function(file, args) {
+  args = typeof args === 'string' ? args : '-w';
   var realFile = path.basename(file);
   var cwd = path.dirname(file);
   return new Promise(function(resolve, reject) {
-    exec('git blame -w ' + realFile, {
+    exec('git blame ' + args + ' ' + realFile, {
       cwd: cwd,
       maxBuffer: 1024 * 1024
     }, function(error, stdout, stderr) {

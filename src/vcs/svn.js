@@ -4,7 +4,8 @@ var Promise = require('bluebird');
 var xml2js = require("xml2js");
 
 
-module.exports = function(file) {
+module.exports = function(file, args) {
+  args = typeof args === 'string' ? args : '--xml';
   var realFile = path.basename(file);
   var cwd = path.dirname(file);
 
@@ -34,7 +35,7 @@ module.exports = function(file) {
   }
 
   return new Promise(function(resolve, reject) {
-    exec('svn blame ' + realFile + ' --xml', {
+    exec('svn blame ' + realFile + ' ' + args, {
       cwd: cwd,
       maxBuffer: 1024 * 1024
     }, function(error, stdout, stderr) {

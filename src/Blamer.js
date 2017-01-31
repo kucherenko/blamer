@@ -2,15 +2,17 @@ var blamerVCS = {
     'git': require("./vcs/git"),
     'svn': require("./vcs/svn")
 };
-var Blamer = function Blamer(type) {
+var Blamer = function Blamer(type, args) {
+    this.args = args;
     this.type = type || 'git';
 };
 
-Blamer.prototype.blameByFile = function blameByFile(file) {
+Blamer.prototype.blameByFile = function blameByFile(file, args) {
     if (!blamerVCS.hasOwnProperty(this.type)) {
         throw new Error('VCS "' + this.type + '" don\'t supported');
     }
-    return blamerVCS[this.type](file);
+    args = typeof args === 'string' ? args : this.args;
+    return blamerVCS[this.type](file, args);
 };
 
 Blamer.prototype.getType = function () {

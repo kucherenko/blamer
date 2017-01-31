@@ -44,6 +44,28 @@ describe('Git', function() {
     );
   });
 
+  it('should exec git blame with args', function() {
+    sut(fileRaw, '-M -w');
+    exec.should.have.been.calledWith(
+      'git blame -M -w ' + file, {
+        cwd: cwd,
+        maxBuffer: 1024 * 1024
+      },
+      sinon.match.any
+    );
+  });
+
+  it('should exec git blame without args', function() {
+    sut(fileRaw, '');
+    exec.should.have.been.calledWith(
+      'git blame  ' + file, {
+        cwd: cwd,
+        maxBuffer: 1024 * 1024
+      },
+      sinon.match.any
+    );
+  });
+
   it('should parse result of blame', function(done) {
     sut(fileRaw).then(callback).finally(function() {
       var res = {};
