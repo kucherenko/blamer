@@ -45,6 +45,28 @@ describe('SVN', function() {
     );
   });
 
+  it('should exec svn blame with args', function() {
+    sut(fileRaw, '--xml --verbose');
+    exec.should.have.been.calledWith(
+      'svn blame ' + file + ' --xml --verbose', {
+        cwd: cwd,
+        maxBuffer: 1024 * 1024
+      },
+      sinon.match.any
+    );
+  });
+
+  it('should exec svn blame without args', function() {
+    sut(fileRaw, '');
+    exec.should.have.been.calledWith(
+      'svn blame ' + file + ' ', {
+        cwd: cwd,
+        maxBuffer: 1024 * 1024
+      },
+      sinon.match.any
+    );
+  });
+
   it('should parse result of blame', function(done) {
     sut(fileRaw).then(callback).finally(function() {
       var res = {};

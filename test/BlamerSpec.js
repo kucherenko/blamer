@@ -3,7 +3,10 @@ describe("Blamer", function(){
 
     beforeEach(function () {
         file = 'zzz';
-        git = env.stub().withArgs(file).returns('resultPromise');
+        git = env.stub();
+        git.withArgs(file, '--o').returns('promise (constructor args)');
+        git.withArgs(file, '--a').returns('promise (call args)');
+        git.withArgs(file).returns('promise (default args)');
         Blamer = proxyquire(sourcePath + 'Blamer',{
             "./vcs/git": git
         });
@@ -20,8 +23,17 @@ describe("Blamer", function(){
         sut.getType().should.equal('git');
     });
 
-    it('should get data from git vcs', function (){
-        sut.blameByFile(file).should.equal('resultPromise');
+    it('should get data from git with default args', function (){
+        sut.blameByFile(file).should.equal('promise (default args)');
+    });
+
+    it('should get data from git with args passed to constructor', function (){
+        var blamer = new Blamer('git', '--o');
+        blamer.blameByFile(file).should.equal('promise (constructor args)');
+    });
+
+    it('should get data from git with args passed to method call', function (){
+        sut.blameByFile(file, '--a').should.equal('promise (call args)');
     });
 
     it('should throw exception in type of vcs dont supported', function (){
