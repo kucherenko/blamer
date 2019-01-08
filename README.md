@@ -8,7 +8,6 @@ Status
 [![NPM version](https://badge.fury.io/js/blamer.svg)](http://badge.fury.io/js/blamer)
 [![Build Status](https://travis-ci.org/kucherenko/blamer.svg?branch=master)](https://travis-ci.org/kucherenko/blamer)
 [![Coverage Status](https://img.shields.io/coveralls/kucherenko/blamer.svg)](https://coveralls.io/r/kucherenko/blamer?branch=master)
-[![Dependency Status](https://gemnasium.com/kucherenko/blamer.svg)](https://gemnasium.com/kucherenko/blamer)
 [![Code Climate](https://codeclimate.com/github/kucherenko/blamer/badges/gpa.svg)](https://codeclimate.com/github/kucherenko/blamer)
 [![NPM](https://nodei.co/npm/blamer.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/blamer/)
 
