@@ -19,7 +19,7 @@
     "svn"
   ],
   "dependencies": {
-    "bluebird": "~2.3.x",
+    "bluebird": "~3.7.1",
     "xml2js": "~0.4.x"
   },
   "devDependencies": {

@@ -85,7 +85,7 @@ describe('Git', function() {
   it('should reject promise on error', function() {
     exec = env.stub().callsArgWith(2, 111, blameString, 'ololo');
     initializeSut();
-    sut(fileRaw).error(callback).finally(function() {
+    sut(fileRaw).catch(callback).finally(function() {
       callback.should.have.been.calledWith({
         error: 111,
         message: 'ololo'
