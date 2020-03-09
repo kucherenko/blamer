@@ -1,9 +1,17 @@
+sudo: false
 language: node_js
-
+env:
+  CODECOV_TOKEN="967cc3b5-600b-4b03-a6b2-6939a817c70e"
 node_js:
-  - '0.10'
-
+  - 10
+  - 12
+# keep the npm cache to speed up installs
+cache:
+  directories:
+    - "$HOME/.npm"
 script:
-  - ./node_modules/jscoverage/bin/jscoverage src .tmp
-  - npm run ci
-  - cat ./coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js
+  - yarn test
+  - yarn build
+after_success:
+  - npx nyc report --reporter=lcov | npx codecov
+  - yarn cov:check
