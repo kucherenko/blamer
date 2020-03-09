@@ -13,5 +13,5 @@ script:
   - yarn test
   - yarn build
 after_success:
-  - npx nyc report --reporter=lcov | npx codecov
+  - codecov -f coverage/*.json
   - yarn cov:check
