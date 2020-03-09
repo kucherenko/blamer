@@ -7,6 +7,7 @@ Status
 ------
 [![NPM version](https://badge.fury.io/js/blamer.svg)](http://badge.fury.io/js/blamer)
 [![Build Status](https://travis-ci.org/kucherenko/blamer.svg?branch=master)](https://travis-ci.org/kucherenko/blamer)
+[![codecov](https://codecov.io/gh/kucherenko/blamer/branch/master/graph/badge.svg)](https://codecov.io/gh/kucherenko/blamer)
 [![Code Climate](https://codeclimate.com/github/kucherenko/blamer/badges/gpa.svg)](https://codeclimate.com/github/kucherenko/blamer)
 
 
