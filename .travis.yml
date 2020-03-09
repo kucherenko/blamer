@@ -10,8 +10,7 @@ cache:
   directories:
     - "$HOME/.npm"
 script:
-  - yarn test
+  - yarn cov
   - yarn build
 after_success:
-  - codecov -f coverage/*.json
-  - yarn cov:check
+  - codecov -f coverage/lcov.info
