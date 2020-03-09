@@ -10,8 +10,8 @@ cache:
   directories:
     - "$HOME/.npm"
 script:
-  - npm run all
-  - npm run build
+  - yarn all
+  - yarn build
 after_success:
   - npx nyc report --reporter=lcov | npx codecov
-  - npm run cov:check
+  - yarn cov:check
