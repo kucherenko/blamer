@@ -6,7 +6,9 @@ const convertStringToObject = (sourceLine: string): BlamedLine => {
   const matches = sourceLine.match(
     /(.+)\s+\((.+)\s+(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} (\+|\-)\d{4})\s+(\d+)\)(.*)/
   );
-  const [, rev, author, date, , line] = matches ? [...matches] : [];
+  const [, rev, author, date, , line] = matches
+    ? [...matches]
+    : [null, '', '', '', '', ''];
   return {
     author,
     date,
