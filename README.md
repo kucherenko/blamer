@@ -7,7 +7,6 @@ Status
 ------
 [![NPM version](https://badge.fury.io/js/blamer.svg)](http://badge.fury.io/js/blamer)
 [![Build Status](https://travis-ci.org/kucherenko/blamer.svg?branch=master)](https://travis-ci.org/kucherenko/blamer)
-[![Coverage Status](https://img.shields.io/coveralls/kucherenko/blamer.svg)](https://coveralls.io/r/kucherenko/blamer?branch=master)
 [![Code Climate](https://codeclimate.com/github/kucherenko/blamer/badges/gpa.svg)](https://codeclimate.com/github/kucherenko/blamer)
 
 
@@ -21,36 +20,27 @@ Setup
 Usage
 -----
 
-```javascript
+```typescript
 
-var Blamer = require('blamer'),
+import Blamer from 'blamer';
+
 // first parameter in Blamer is type of VCS, can be 'svn' or 'git', 'git' used by default
-    blamer = new Blamer('svn');
+const blamer = new Blamer('git');
 
-// blameByFile return [Promises/A+](https://promisesaplus.com/)
-blamer.blameByFile('/path/to/file/in/repo').then(
-    function (result) {
-        console.log("Blame json: %j", result);
-//        will print
-//        Blame json: {"/path/to/file/in/repo": {
-//            "1": {
-//                "rev": "rev",
-//                "author": "author",
-//                "date": "2014-10-15T12:33:31.675393Z",
-//                "line": "1"
-//            }
-//       }
-//		}
-    },
-    function (error) {
-        console.log("Error: %j", error);
-//        will print
-//        Error: {
-//            "error": "error type",
-//            "message": "error message"
-//        }
-    }
-);
+( async () => {
+    const result = await blamer.blameByFile('/path/to/file/in/repo');
+    console.log("Blame json: %j", result);
+    //        will print
+    //        Blame json: {"/path/to/file/in/repo": {
+    //            "1": {
+    //                "rev": "rev",
+    //                "author": "author",
+    //                "date": "2014-10-15T12:33:31.675393Z",
+    //                "line": "1"
+    //             }
+    //        }
+    //   }
+})
 
 ```
 
