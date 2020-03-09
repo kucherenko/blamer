@@ -1,33 +1,11 @@
-
-########################
-# node.js / npm
-########################
-lib-cov
-*.seed
-*.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
-
-pids
-logs
-results
-.tmp
-coverage
 node_modules
+build
+test
+src/**.js
+.idea/*
 
-npm-debug.log
+coverage
+.nyc_output
+*.log
 
-
-########################
-# misc / editors
-########################
-*~
-*#
-.DS_STORE
-.netbeans
-nbproject
-.idea
-atlassian-ide-plugin.xml
+package-lock.json
