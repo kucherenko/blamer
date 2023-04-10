@@ -1,0 +1,30 @@
+{
+  "name": "blamer",
+  "version": "2.0.0",
+  "description": "blamer is a tool for getting information about author of code from version control system",
+  "repository": "https://github.com/kucherenko/blamer",
+  "license": "MIT",
+  "type": "module",
+  "exports": "./index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest",
+    "test:cov": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "version": "standard-version",
+    "reset": "git clean -dfx && git reset --hard && pnpm i"
+  },
+  "keywords": [],
+  "author": "Andrey Kucherenko",
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@vitest/ui": "^0.29.8",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.3",
+    "vitest": "^0.29.8"
+  },
+  "dependencies": {
+    "standard-version": "^9.5.0"
+  }
+}
