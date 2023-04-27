@@ -17,16 +17,10 @@ const mockedResult: BlameResult = {
 };
 stub.returns(mockedResult);
 const { Blamer } = proxyquire('./blamer', {
-  './vcs/git': { git: stub },
-  './vcs/svn': { svn: stub }
+  './vcs/git': { git: stub }
 });
 
 test('should show authors of code in file under git', async (t: ExecutionContext) => {
   const blamer = new Blamer();
-  t.deepEqual(await blamer.blameByFile(path), mockedResult);
-});
-
-test('should show authors of code in file under svn', async (t: ExecutionContext) => {
-  const blamer = new Blamer('svn');
   t.deepEqual(await blamer.blameByFile(path), mockedResult);
 });

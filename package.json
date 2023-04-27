@@ -1,6 +1,6 @@
 {
   "name": "blamer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "blamer is a tool for getting information about author of code from version control system",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -51,8 +51,7 @@
   },
   "dependencies": {
     "execa": "^4.0.0",
-    "which": "^2.0.2",
-    "xml2js": "^0.5.0"
+    "which": "^2.0.2"
   },
   "devDependencies": {
     "@bitjson/npm-scripts-info": "^1.0.0",
