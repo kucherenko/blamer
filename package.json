@@ -1,6 +1,6 @@
 {
   "name": "blamer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "blamer is a tool for getting information about author of code from version control system",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/kucherenko/blamer/compare/v1.0.3...v1.0.4) (2023-09-17)
+
+
+### Bug Fixes
+
+* **vulnerability:** https://gist.github.com/lirantal/14c3686370a86461f555d3f0703e02f9 ([0965877](https://github.com/kucherenko/blamer/commit/0965877f115753371a2570f10a63c455d2b2cde3))
+
 ### [1.0.3](https://github.com/kucherenko/blamer/compare/v1.0.1...v1.0.3) (2023-04-27)
 
 
