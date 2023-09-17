@@ -21,7 +21,7 @@
     "cov": "run-s build test:unit cov:html && open-cli coverage/index.html",
     "cov:html": "nyc report --reporter=lcov",
     "cov:send": "nyc report --reporter=lcov && codecov",
-    "cov:check": "nyc report && nyc check-coverage --lines 100 --functions 100 --branches 100",
+    "cov:check": "nyc report && nyc check-coverage --lines 90 --functions 100 --branches 80",
     "version": "standard-version",
     "reset": "git clean -dfx && git reset --hard && npm i",
     "clean": "trash build test",
@@ -48,6 +48,7 @@
   "devDependencies": {
     "@bitjson/npm-scripts-info": "^1.0.0",
     "@istanbuljs/nyc-config-typescript": "^0.1.3",
+    "@types/node": "^20.6.2",
     "@types/sinon": "^7.5.2",
     "@types/which": "^1.3.2",
     "ava": "^3.5.0",

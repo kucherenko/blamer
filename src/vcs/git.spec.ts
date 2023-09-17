@@ -14,7 +14,8 @@ const stubExeca = {
 const stubWhich = sinon.stub().returns(pathToGit);
 const { git } = proxyquire('./git', {
   execa: stubExeca,
-  which: stubWhich
+  which: stubWhich,
+  'node:fs': {existsSync: sinon.stub().returns(true)}
 });
 
 test('should parse git blame command output', async (t: ExecutionContext) => {
