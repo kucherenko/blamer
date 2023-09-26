@@ -1,7 +1,7 @@
 import execa from 'execa';
 import which from 'which';
 import { BlamedLine, BlameResult } from '../blame-result.interface';
-import { existsSync } from 'node:fs';
+import { existsSync } from 'fs';
 
 const convertStringToObject = (sourceLine: string): BlamedLine => {
   const matches = sourceLine.match(
