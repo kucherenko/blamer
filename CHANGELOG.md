@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/kucherenko/blamer/compare/v1.0.4...v1.0.6) (2023-09-26)
+
+
+### Bug Fixes
+
+* **node:fs:** remove standart module import ([fb014a3](https://github.com/kucherenko/blamer/commit/fb014a3cc348a7f27375e2db18babe74448aac2c))
+
 ### [1.0.4](https://github.com/kucherenko/blamer/compare/v1.0.3...v1.0.4) (2023-09-17)
 
 
