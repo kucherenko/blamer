@@ -25,8 +25,7 @@ export async function git(path: string): Promise<BlameResult> {
   if (!existsSync(path)) {
     throw new Error(`File ${path} does not exist`);
   }
-
-  const result = execa.sync(pathToGit, ['blame', '-w', path]);
+  const result = await execa(pathToGit, ['blame', '-w', path]);
   result.stdout.split('\n').forEach(line => {
     if (line !== '') {
       const blamedLine = convertStringToObject(line);
